@@ -1,0 +1,29 @@
+{
+  "name": "hardhttps",
+  "version": "0.0.0",
+  "description": "Make an https server that is more resistant to client-initiated renegotiations, and other common security mistakes.",
+  "main": "hardhttps.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "~0.3.1"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isaacs/hardhttps"
+  },
+  "keywords": [
+    "https",
+    "BEAST",
+    "client",
+    "renegotiation",
+    "attack"
+  ],
+  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)",
+  "license": "BSD"
+}
