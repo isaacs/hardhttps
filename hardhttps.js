@@ -38,6 +38,12 @@ var hardhttps = module.exports = Object.create(https, {
     configurable: true,
     enumerable: true,
     writable: true
+  },
+  strictTimeout: {
+    value: String(1000 * 60 * 60 * 24 * 365),
+    configurable: true,
+    enumerable: true,
+    writable: true
   }
 })
 
@@ -54,11 +60,13 @@ function createServer (options, listener) {
   options.secureProtocol = hardhttps.secureProtocol
   options.honorCipherOrder = true
 
-  var server = https.createServer(options, listener)
+  var server = https.createServer(options)
 
   // only https is allowed
   server.on('request', function (q, s) {
-    s.setHeader('strict-transport-security', String(1000 * 60 * 60 * 24 * 365))
+    s.setHeader('strict-transport-security', hardhttps.strictTimeout)
+    if (typeof listener === 'function')
+      listener.call(this, q, s)
   })
 
   // TODO: This should be fixed for node 0.10 to be less awful.
