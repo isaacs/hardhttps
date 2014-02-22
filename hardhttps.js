@@ -64,7 +64,8 @@ function createServer (options, listener) {
 
   // only https is allowed
   server.on('request', function (q, s) {
-    s.setHeader('strict-transport-security', hardhttps.strictTimeout)
+    s.setHeader('strict-transport-security',
+                'max-age=' + hardhttps.strictTimeout)
     if (typeof listener === 'function')
       listener.call(this, q, s)
   })
