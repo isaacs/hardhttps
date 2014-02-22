@@ -1,6 +1,6 @@
 {
   "name": "hardhttps",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Make an https server that is more resistant to client-initiated renegotiations, and other common security mistakes.",
   "main": "hardhttps.js",
   "directories": {
