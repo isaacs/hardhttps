@@ -53,8 +53,8 @@ LIMITS.forEach(function (LIMIT) {
       var child = spawn('openssl', args);
       var renegAttempts = 0;
 
-      child.stdout.pipe(process.stdout);
-      child.stderr.pipe(process.stderr);
+      //child.stdout.pipe(process.stdout);
+      //child.stderr.pipe(process.stderr);
 
       // count handshakes, start the attack after the initial handshake is done
       var handshakes = 0;
